@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+# create CSV timeseries of downstream flow requirements for the different environmental scenarios
+
 def water_day(d):
   return d - 274 if d >= 274 else d + 91
 water_year = lambda d: d.year+1 if d.dayofyear >= 274 else d.year
@@ -74,10 +76,7 @@ for r in ['FMD','HHL']:
     df['%s_%s' % (r,scen)] = df[s]
 
 # now add in pulse flows
-# this is hard to do without just hacking it together
 # all data from Kristen's excel file
-
-
 
 pulse = {
   'FMD': {

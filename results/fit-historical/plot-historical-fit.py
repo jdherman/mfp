@@ -39,13 +39,28 @@ df = model.f(P=P, mode='simulation')
 
 df[['RFMD','RHHL']] *= taf_cfs
 
-df[['SFMD','FMD_storage','SHHL','HHL_storage','RFMD','FMD_out_FMPH','RHHL','HHL_out_MFPH']].to_csv('data-for-phil.csv')
-# df[['SFMD','FMD_storage']].plot()
+# df[['SFMD','FMD_storage','SHHL','HHL_storage','RFMD','FMD_out_FMPH','RHHL','HHL_out_MFPH']].to_csv('data-for-phil.csv')
+
+ax = plt.subplot(2,1,1)
+df[['SFMD','FMD_storage']].plot(ax = ax)
+plt.ylabel('FMD Storage (TAF)')
+plt.legend(['Modeled', 'Observed'])
+plt.ylim([0,150])
+
+r2 = np.corrcoef(df.SFMD.values, df.FMD_storage.values)**2
+print('FMD R2: %0.2f' % r2[0,1])
+
+ax = plt.subplot(2,1,2)
+df[['SHHL','HHL_storage']].plot(ax = ax)
+plt.ylabel('HHL Storage (TAF)')
+plt.legend(['Modeled', 'Observed'])
+plt.ylim([0,220])
+
+r2 = np.corrcoef(df.SHHL.values, df.HHL_storage.values)**2
+print('HHL R2: %0.2f' % r2[0,1])
 
 # df[['RFMD','FMD_out_FMPH']].plot()
 # df[['RHHL','HHL_out_MFPH']].plot()
-# df[['SHHL','HHL_storage']].plot()
 # plt.ylabel('HHL Storage (TAF)')
-# plt.legend(['Modeled', 'Observed'])
 
-# plt.show()
+plt.show()

@@ -4,6 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# combine USGS streamflow data into one CSV file
+
 afd_cfs = 1 / 86400 * 43560
 
 def water_day(d):

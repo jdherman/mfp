@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 from ulmo.usgs import nwis as ug
 import time
 
+# use ulmo library to download USGS streamflow data
+
 t = pd.date_range(start='1980-10-01', end='2017-09-30')
 df = pd.DataFrame(index=t)
 

@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+# test plots
+
 cfs_taf = 2.29568411*10**-5 * 86400 / 1000
 taf_cfs = 1000 / 86400 * 43560
 cms_cfs = 35.3146667

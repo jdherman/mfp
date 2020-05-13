@@ -21,16 +21,16 @@ print('Comparing total annual generation...')
 for vs in vegscens:
   fname = vs + '_' + envscen + '.csv'
   df = pd.read_csv('timeseries/%s-policy/'%historopt + fname, index_col=0, parse_dates=True)
-  power = df.total_power.resample('AS-OCT').sum()
-  power2 = (df_FRM[vs] + df_HHL[vs]).resample('AS-OCT').sum()
+  power = df.total_power.resample('AS-OCT').sum() / 1000
+  power2 = (df_FRM[vs] + df_HHL[vs]).resample('AS-OCT').sum() / 1000
   r2 = np.corrcoef(power.values, power2.values)**2
   print(fname + ',' + str(r2[0,1]))
 
   power.plot()
   power2.plot()
-  plt.legend(['Our model', 'OASIS'])
-  plt.ylabel('FRM+HHL total generation, MWh/year')
-  plt.savefig('oasis-plots/%s-policy/'%historopt + 'total-power_%s_%s.png' % (vs, envscen))
+  plt.legend(['Simplified Model', 'Full Operational Model'])
+  plt.ylabel('FRM+HHL total generation, GWh/year')
+  plt.savefig('oasis-plots/%s-policy/'%historopt + 'total-power_%s_%s.svg' % (vs, envscen))
   plt.close()
 
 # comparison 2: storage at different timescales
@@ -47,7 +47,7 @@ for vs in vegscens:
   print(fname + ',' + str(r2[0,1]))
   storage.plot()
   storage2.plot()
-  plt.legend(['Our model', 'OASIS'])
+  plt.legend(['Simplified Model', 'Full Operational Model'])
   plt.ylabel('Storage (TAF)')
   plt.savefig('oasis-plots/%s-policy/'%historopt + 'HHLStorage_%s_%s.png' % (vs, envscen))
   plt.close()
@@ -62,7 +62,7 @@ for vs in vegscens:
   print(fname + ',' + str(r2[0,1]))
   storage.plot()
   storage2.plot()
-  plt.legend(['Our model', 'OASIS'])
+  plt.legend(['Simplified Model', 'Full Operational Model'])
   plt.ylabel('Storage (TAF)')
   plt.savefig('oasis-plots/%s-policy/'%historopt + 'FMDStorage_%s_%s.png' % (vs, envscen))
   plt.close()

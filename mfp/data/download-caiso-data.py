@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from pyiso import client_factory
 
+# scrape locational marginal price (LMP) data from CAISO
+
 # watch errors about XML parsing
 caiso = client_factory('CAISO', timeout_seconds=180)
 # dates = pd.date_range('10-01-2009', '09-30-2016', freq='D')
