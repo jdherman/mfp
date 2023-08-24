@@ -13,12 +13,12 @@ ed = '2015-09-30'
 df = pd.read_csv('mfp_data.csv', index_col=0, parse_dates=True)[sd:ed] * cfs_taf
 dfveg = pd.read_csv('phil-frm-veg-scenarios.csv', 
                           index_col=0, parse_dates=True)[sd:ed] * cms_cfs * cfs_taf
-print(dfveg['bias_cor'].max())
-# to figure out bias correction from Phil's data
-print(dfveg.sum(axis=0))
+# print(dfveg['bias_cor'].max())
+# # to figure out bias correction from Phil's data
+# print(dfveg.sum(axis=0))
 
-print(df['FMD_in_MF'].sum(axis=0))
-print(df['FMD_in_duncan'].sum(axis=0))
+print(df['FMD_in_MF'].sum(axis=0) * cfs_taf)
+print(df['FMD_in_duncan'].sum(axis=0) * cfs_taf)
 
 # df.CAISO_LMP.plot()
 # plt.show()

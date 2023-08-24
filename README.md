@@ -1,6 +1,6 @@
 ### Middle Fork American River hydropower optimization model
 
-Code for reservoir model portion of Bryant et al. (in prep). Simulation and optimization of hydropower generation and environmental flows in the Middle Fork Project, California.
+Code for reservoir model portion of [Bryant et al. (2023)](https://www.mdpi.com/2071-1050/15/15/11549). Simulation and optimization of hydropower generation and environmental flows in the Middle Fork Project, California.
 
 `ptreeopt/`: local copy of policy tree optimization code. Latest version maintained [here](https://github.com/jdherman/ptreeopt).
 
