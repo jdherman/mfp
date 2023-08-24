@@ -2,7 +2,6 @@ import numpy as np
 import pickle
 import pandas as pd
 
-# should be NO empty files
 vegscens = ['Control', 'Treatment',
             'OldFireModel_Extreme_Control',
             'OldFireModel_Moderate_Control',

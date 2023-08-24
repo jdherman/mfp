@@ -2,7 +2,6 @@ import numpy as np
 import pickle
 import pandas as pd
 
-# should be NO empty files
 
 for vegscen in ['Control', 'Treatment', 'eelt_75', 'eeln_75']:
   for envscen in ['no_pulse', 'FERC', 'increase_rampdown']:
